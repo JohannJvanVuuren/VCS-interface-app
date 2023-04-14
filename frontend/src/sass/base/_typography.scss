@@ -1,0 +1,21 @@
+/* Import to enable the use of variables */
+@import '../abstract/_variables.scss';
+
+/* Typography of general theme across whole app */
+body {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: $off-white-blue;
+}
+
+/* Typography of header */
+.header-container {
+  h1 {
+    font-size: 5.5rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: $off-white-yellow;
+    word-spacing: 5px;
+    text-shadow: 2px 2px 4px $dark-shadow;
+
+  }
+}

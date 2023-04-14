@@ -1,0 +1,67 @@
+/* Colour schema */
+/* Blues */
+/* Yellows */
+/* Shadows */
+/* Global reset */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:wght@300;400;700;900&display=swap");
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Setting global font size to 1rem = 10px for ease of reference */
+html {
+  font-size: 62.5%;
+}
+
+/* Import to enable the use of variables */ /* Colour schema */
+/* Blues */
+/* Yellows */
+/* Shadows */
+/* Typography of general theme across whole app */
+body {
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #C6C6FF;
+}
+
+/* Typography of header */
+.header-container h1 {
+  font-size: 5.5rem;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #FFFFD8;
+  word-spacing: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Import to allow use of variables */ /* Colour schema */
+/* Blues */
+/* Yellows */
+/* Shadows */
+/* General styling of header */
+.header-container {
+  /* Styling of header logos */
+}
+.header-container .header-banner {
+  margin: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header-container .header-logo {
+  display: inline-block;
+  height: 5rem;
+  width: auto;
+}
+
+/* General styling of the body elements across the app */
+body {
+  background-image: url(../images/dark-blue-silk.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=main.css.map */

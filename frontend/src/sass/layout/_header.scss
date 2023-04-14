@@ -1,0 +1,16 @@
+.header-container {
+
+  .header-banner {
+    margin: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* Styling of header logos */
+  .header-logo {
+    display: inline-block;
+    height: 5rem;
+    width: auto;
+  }
+}
