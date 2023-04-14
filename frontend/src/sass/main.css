@@ -57,11 +57,4 @@ body {
   width: auto;
 }
 
-/* General styling of the body elements across the app */
-body {
-  background-image: url(../images/dark-blue-silk.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 /*# sourceMappingURL=main.css.map */

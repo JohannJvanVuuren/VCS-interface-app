@@ -1,0 +1,6 @@
+/* Using normal CSS for body background because SCSS could not resolve the filepath of the image */
+body {
+    background-image: url(images/dark-blue-silk.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

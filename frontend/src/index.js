@@ -1,9 +1,16 @@
+/* Import of React modules */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './sass/main.css';
-import App from './App';
+/* Import of reportWebVitals for performance measuring if needed later on */
 import reportWebVitals from './reportWebVitals';
 
+/* Import of main component where everything else is ultimately rendered */
+import { App } from './App';
+
+/* Import of main style sheet generated from SCSS files and preprocessor */
+import './sass/main.css';
+
+/* Rendering of the main component in the div with id root in index.html */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
