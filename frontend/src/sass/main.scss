@@ -1,3 +1,4 @@
+/* Import of SCSS files from which the main CSS file is generated */
 @import 'abstract/variables';
 
 @import 'base/reset';
@@ -5,6 +6,8 @@
 
 @import 'component/header';
 
+@import 'layout/App';
 @import 'layout/header';
+@import 'layout/search-bar';
 
 @import 'vendors/google-fonts';

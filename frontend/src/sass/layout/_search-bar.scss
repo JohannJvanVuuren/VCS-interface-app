@@ -1,0 +1,46 @@
+/* Import to enable use of variables */
+@import '../abstract/variables';
+
+/* Layout of the search bar in the header */
+.header-container {
+
+  margin: 0 auto;
+
+  .search {
+
+    display: flex;
+    margin: 2rem auto;
+    justify-content: center;
+    align-items: flex-end;
+
+    .input-form {
+      display: flex;
+      margin-left: 1rem;
+      align-items: center;
+
+      .search-input {
+        visibility: hidden;
+        width: 30px;
+        font-size: 2rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        margin-right: 1rem;
+        border: none;
+        box-shadow: 0.5rem 0.5rem 3rem $mid-shadow,
+      -0.5rem -0.5rem 3rem $dark-blue;
+        background-color: $off-white-yellow;
+        text-align: center;
+        outline: none;
+
+      }
+
+      .search-image {
+        height: 4rem;
+      }
+
+    }
+
+
+  }
+
+}

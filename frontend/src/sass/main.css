@@ -1,4 +1,4 @@
-/* Colour schema */
+/* Import of SCSS files from which the main CSS file is generated */ /* Colour schema */
 /* Blues */
 /* Yellows */
 /* Shadows */
@@ -43,6 +43,20 @@ body {
 /* Shadows */
 /* General styling of header */
 .header-container {
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.5), -0.5rem -0.5rem 3rem #000015;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.App {
+  padding: 2rem;
+}
+
+.header-container {
+  width: 95%;
+  height: auto;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
   /* Styling of header logos */
 }
 .header-container .header-banner {
@@ -55,6 +69,42 @@ body {
   display: inline-block;
   height: 5rem;
   width: auto;
+}
+
+/* Import to enable use of variables */ /* Colour schema */
+/* Blues */
+/* Yellows */
+/* Shadows */
+/* Layout of the search bar in the header */
+.header-container {
+  margin: 0 auto;
+}
+.header-container .search {
+  display: flex;
+  margin: 2rem auto;
+  justify-content: center;
+  align-items: flex-end;
+}
+.header-container .search .input-form {
+  display: flex;
+  margin-left: 1rem;
+  align-items: center;
+}
+.header-container .search .input-form .search-input {
+  visibility: hidden;
+  width: 30px;
+  font-size: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  border: none;
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.5), -0.5rem -0.5rem 3rem #000015;
+  background-color: #FFFFD8;
+  text-align: center;
+  outline: none;
+}
+.header-container .search .input-form .search-image {
+  height: 4rem;
 }
 
 /*# sourceMappingURL=main.css.map */

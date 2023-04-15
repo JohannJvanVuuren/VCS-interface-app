@@ -3,5 +3,7 @@
 
 /* General styling of header */
 .header-container {
-
+  box-shadow: 0.5rem 0.5rem 3rem $mid-shadow,
+  -0.5rem -0.5rem 3rem $dark-blue;
+  background-color: $dark-shadow;
 }

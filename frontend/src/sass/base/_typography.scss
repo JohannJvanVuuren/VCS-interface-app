@@ -9,6 +9,7 @@ body {
 
 /* Typography of header */
 .header-container {
+
   h1 {
     font-size: 5.5rem;
     text-transform: uppercase;
@@ -16,6 +17,5 @@ body {
     color: $off-white-yellow;
     word-spacing: 5px;
     text-shadow: 2px 2px 4px $dark-shadow;
-
   }
 }

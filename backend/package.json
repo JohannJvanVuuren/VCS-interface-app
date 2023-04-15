@@ -2,6 +2,8 @@
   "name": "vcs-interface-app",
   "version": "0.0.0",
   "private": true,
+  "author": "Johann Jansen van Vuuren",
+  "license": "ISC",
   "scripts": {
     "start": "nodemon bin/www",
     "test": "mocha"
