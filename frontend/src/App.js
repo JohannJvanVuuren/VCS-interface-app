@@ -1,4 +1,3 @@
-import {Component} from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 /* Import of the components needed in this one */
