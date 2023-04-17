@@ -1,6 +1,7 @@
 /* Import of SCSS files from which the main CSS file is generated */ /* Colour schema */
 /* Blues */
 /* Yellows */
+/* Burgundies */
 /* Shadows */
 /* Global reset */
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:wght@300;400;700;900&display=swap");
@@ -20,6 +21,7 @@ html {
 /* Import to enable the use of variables */ /* Colour schema */
 /* Blues */
 /* Yellows */
+/* Burgundies */
 /* Shadows */
 /* Typography of general theme across whole app */
 body {
@@ -37,18 +39,99 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+/* Typography of the home page */
+.home-container {
+  /* Centering of all text */
+  /* Styling of heading */
+  /* Sizing of three paragraphs */
+}
+.home-container .home-heading,
+.home-container .home-paragraph1,
+.home-container .home-paragraph2,
+.home-container .home-paragraph3 {
+  text-align: center;
+}
+.home-container .home-heading {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #D8D800;
+}
+.home-container .home-paragraph1 {
+  font-size: 2rem;
+}
+.home-container .home-paragraph2 {
+  font-size: 1.8rem;
+}
+.home-container .home-paragraph3 {
+  font-size: 1.6rem;
+}
+
 /* Import to allow use of variables */ /* Colour schema */
 /* Blues */
 /* Yellows */
+/* Burgundies */
 /* Shadows */
 /* General styling of header */
 .header-container {
-  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.5), -0.5rem -0.5rem 3rem #000015;
+  box-shadow: 0.5rem 0.5rem 3rem rgb(0, 0, 0), -0.5rem -0.5rem 3rem #005DB4;
   background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Import to enable use of variables */ /* Colour schema */
+/* Blues */
+/* Yellows */
+/* Burgundies */
+/* Shadows */
+/* Styling of home page */
+.home-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 4rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(1rem);
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5);
+}
+
+/* Import to enable use of variables */ /* Colour schema */
+/* Blues */
+/* Yellows */
+/* Burgundies */
+/* Shadows */
+/* Styling of the search bar input field in the header component */
+.header-container .search .home-btn-container .btn-home {
+  border-radius: 1rem;
+  width: 10rem;
+  border: none;
+  background-color: #005DB4;
+  color: #FFE2E9;
+  box-shadow: 1rem 1rem 3rem rgb(0, 0, 0), -1px -1px 0.5rem #007CEE;
+}
+.header-container .search .input-form {
+  /* The input field */
+  /* The form submit button */
+}
+.header-container .search .input-form .search-input {
+  font-size: 2rem;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.5), -0.5rem -0.5rem 3rem #000015;
+  background-color: #FFFFD8;
+  text-align: center;
+  outline: none;
+}
+.header-container .search .input-form .btn-submit {
+  width: 10rem;
+  border-radius: 1rem;
+  background-color: #005DB4;
+  border: none;
+  color: #FFE2E9;
+  box-shadow: 1rem 1rem 3rem rgb(0, 0, 0), -1px -1px 0.5rem #007CEE;
 }
 
 .App {
   padding: 2rem;
+  height: 100vh;
+  position: relative;
 }
 
 .header-container {
@@ -57,10 +140,12 @@ body {
   padding: 1rem;
   margin-top: 2rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   /* Styling of header logos */
 }
 .header-container .header-banner {
-  margin: 3rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -71,40 +156,57 @@ body {
   width: auto;
 }
 
-/* Import to enable use of variables */ /* Colour schema */
-/* Blues */
-/* Yellows */
-/* Shadows */
+/* Layout of the home page that users will encounter when visiting the main url */
+.home-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.home-container .home-paragraph1 {
+  margin-top: 3rem;
+}
+
 /* Layout of the search bar in the header */
+/* General positioning of the header div */
 .header-container {
   margin: 0 auto;
+  /* Layout of the search form element of the component */
+  /* General layout */
 }
 .header-container .search {
+  width: 100%;
+  height: auto;
   display: flex;
   margin: 2rem auto;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
+  /* Layout and dimensions of home button */
+  /* Layout of the form as a whole */
+}
+.header-container .search .home-btn-container .btn-home {
+  padding: 1rem;
 }
 .header-container .search .input-form {
   display: flex;
   margin-left: 1rem;
   align-items: center;
+  position: relative;
+  /* Dimensions of the input field */
+  /* Dimensions and positioning of the search icon */
+  /* Dimensions of the submit button */
 }
 .header-container .search .input-form .search-input {
-  visibility: hidden;
-  width: 30px;
-  font-size: 2rem;
-  border-radius: 1rem;
-  padding: 1rem;
+  width: 40rem;
+  padding: 0.6rem;
   margin-right: 1rem;
-  border: none;
-  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.5), -0.5rem -0.5rem 3rem #000015;
-  background-color: #FFFFD8;
-  text-align: center;
-  outline: none;
 }
 .header-container .search .input-form .search-image {
-  height: 4rem;
+  height: 3rem;
+  position: absolute;
+}
+.header-container .search .input-form .btn-submit {
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

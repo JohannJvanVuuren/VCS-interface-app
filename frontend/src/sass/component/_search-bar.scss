@@ -1,0 +1,48 @@
+/* Import to enable use of variables */
+@import '../abstract/variables';
+
+/* Styling of the search bar input field in the header component */
+.header-container {
+
+  .search {
+
+    .home-btn-container {
+
+      .btn-home {
+        border-radius: 1rem;
+        width: 10rem;
+        border: none;
+        background-color: $mid-blue;
+        color: $off-white-burgundy;
+        box-shadow: 1rem 1rem 3rem $solid-black,
+      -1px -1px 0.5rem $light-blue;
+      }
+    }
+
+    .input-form {
+
+      /* The input field */
+      .search-input {
+        font-size: 2rem;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: 0.5rem 0.5rem 3rem $mid-shadow,
+        -0.5rem -0.5rem 3rem $dark-blue;
+        background-color: $off-white-yellow;
+        text-align: center;
+        outline: none;
+      }
+
+      /* The form submit button */
+      .btn-submit {
+        width: 10rem;
+        border-radius: 1rem;
+        background-color: $mid-blue;
+        border: none;
+        color: $off-white-burgundy;
+        box-shadow: 1rem 1rem 3rem $solid-black,
+        -1px -1px 0.5rem $light-blue;
+      }
+    }
+  }
+}

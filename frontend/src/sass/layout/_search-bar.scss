@@ -1,46 +1,54 @@
-/* Import to enable use of variables */
-@import '../abstract/variables';
-
 /* Layout of the search bar in the header */
+
+/* General positioning of the header div */
 .header-container {
 
   margin: 0 auto;
 
+  /* Layout of the search form element of the component */
+
+  /* General layout */
   .search {
 
+    width: 100%;
+    height: auto;
     display: flex;
     margin: 2rem auto;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-end;
 
+    /* Layout and dimensions of home button */
+    .home-btn-container {
+
+      .btn-home {
+        padding: 1rem;
+      }
+    }
+
+    /* Layout of the form as a whole */
     .input-form {
       display: flex;
       margin-left: 1rem;
       align-items: center;
+      position: relative;
 
+      /* Dimensions of the input field */
       .search-input {
-        visibility: hidden;
-        width: 30px;
-        font-size: 2rem;
-        border-radius: 1rem;
-        padding: 1rem;
+        width: 40rem;
+        padding: 0.6rem;
         margin-right: 1rem;
-        border: none;
-        box-shadow: 0.5rem 0.5rem 3rem $mid-shadow,
-      -0.5rem -0.5rem 3rem $dark-blue;
-        background-color: $off-white-yellow;
-        text-align: center;
-        outline: none;
-
       }
 
+      /* Dimensions and positioning of the search icon */
       .search-image {
-        height: 4rem;
+        height: 3rem;
+        position: absolute;
       }
 
+      /* Dimensions of the submit button */
+      .btn-submit {
+        padding: 1rem;
+      }
     }
-
-
   }
-
 }

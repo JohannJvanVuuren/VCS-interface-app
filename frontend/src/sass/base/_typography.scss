@@ -19,3 +19,37 @@ body {
     text-shadow: 2px 2px 4px $dark-shadow;
   }
 }
+
+/* Typography of the home page */
+.home-container {
+
+  /* Centering of all text */
+  .home-heading,
+  .home-paragraph1,
+  .home-paragraph2,
+  .home-paragraph3 {
+    text-align: center;
+  }
+
+  /* Styling of heading */
+  .home-heading {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $dark-yellow;
+  }
+
+  /* Sizing of three paragraphs */
+
+  .home-paragraph1 {
+    font-size: 2rem;
+  }
+
+  .home-paragraph2 {
+    font-size: 1.8rem;
+  }
+
+  .home-paragraph3 {
+    font-size: 1.6rem;
+  }
+
+}
