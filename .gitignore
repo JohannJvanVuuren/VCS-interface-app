@@ -3,3 +3,6 @@
 /backend/yarn.lock
 /frontend/yarn.lock
 
+# dotenv environment variables file
+.env
+.env.test
