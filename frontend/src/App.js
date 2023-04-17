@@ -20,8 +20,8 @@ export const App = () => {
                 <Header/>
             </section>
             <Routes>
-                <Route path={'/'} Component={Home} exact/>
-                <Route Component={Error} />
+                <Route path={'/'} element={<Home/>} exact/>
+                <Route path={'*'} element={<Error/>} />
             </Routes>
         </main>
     );

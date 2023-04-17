@@ -4,11 +4,13 @@
 @import 'base/reset';
 @import 'base/typography';
 
+@import 'component/error';
 @import 'component/header';
 @import 'component/home-page';
 @import 'component/search-bar';
 
 @import 'layout/App';
+@import 'layout/error';
 @import 'layout/header';
 @import 'layout/home-page';
 @import 'layout/search-bar';
