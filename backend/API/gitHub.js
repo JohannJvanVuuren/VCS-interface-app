@@ -1,7 +1,5 @@
 const axios = require('axios').default;
 const frontendInfo = require('../controllers/frontendInfo');
-const express = require('express');
-const app = express();
 
 const URL = `https://api.github.com/search/users?q=${frontendInfo.searchTerm}+repos:%3E1+followers:%3E1`;
 

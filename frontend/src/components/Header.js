@@ -6,7 +6,7 @@ import GitLabLogo from '../images/gitlab-logo.svg';
 import SearchImage from '../images/emyllerMagnifyingGlass.webp';
 
 import axios from 'axios';
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import {Link} from "react-router-dom";
 
 /* Definition of the Header component */
