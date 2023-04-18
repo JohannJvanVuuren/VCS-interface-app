@@ -1,3 +1,6 @@
+/*
+* This route is here to test the general functioning of the backend
+*/
 const express = require('express');
 const router = express.Router();
 

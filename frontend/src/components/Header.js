@@ -4,7 +4,9 @@ import '../sass/main.css';
 import GitHubLogo from '../images/github-logo.png';
 import GitLabLogo from '../images/gitlab-logo.svg';
 import SearchImage from '../images/emyllerMagnifyingGlass.webp';
-import {useState} from "react";
+
+import axios from 'axios';
+import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 /* Definition of the Header component */
@@ -16,8 +18,28 @@ export const Header = () => {
 
     /* Function to handle the submit button event when the form is submitted */
    const formSubmitHandler = (event) => {
-       alert(`The term you entered was ${searchTerm}`);
+       event.preventDefault();
+       console.log('Form successfully submitted')
+       // alert(`The term you entered was ${searchTerm}`);
+
+       const options = {
+           url: 'http://localhost:8000/search-term',
+           method: 'POST',
+           data: {
+               searchTerm: searchTerm
+           }
+       }
+
+       axios(options)
+           .then(response => {
+               console.log(response.status)
+           })
+           .catch(err => {console.log(err.message)})
+
+
    }
+
+
 
    /* Rendering of the header component */
     return (

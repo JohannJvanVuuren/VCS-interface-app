@@ -5,6 +5,10 @@ const config = require('config')
 const port = config.get('server.port')
 const host = config.get('server.host')
 
+/* Setting up environmental variables */
+require('dotenv').config();
+console.log(process.env.GITHUB_API_KEY)
+
 /**
  * Module dependencies.
  */

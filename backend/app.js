@@ -6,10 +6,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const helmet = require('helmet');
 const crypto = require('crypto');
+const cors = require('cors');
+
+
 
 /* Require statements for the routes */
-const indexRouter = require('./routes');
 const usersRouter = require('./routes/users');
+const frontendInfoRouter = require('./routes/frontendInfo');
 
 /* Creation of an app instance returned by Express  */
 const app = express();
@@ -19,6 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 /* Enabling of all middleware and external packages */
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,12 +38,13 @@ helmet.contentSecurityPolicy({
     "object-src": 'none',
     "base-uri": 'none',
     "Cross-Origin-Resource-Policy": 'cross-origin',
+    "Cross-Origin-Opener-Policy": 'cross-origin',
   }
 })
 
 /* Enabling of the routes */
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', frontendInfoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
