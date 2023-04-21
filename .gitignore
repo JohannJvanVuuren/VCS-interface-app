@@ -4,5 +4,5 @@
 /frontend/yarn.lock
 
 # dotenv environment variables file
-backend/.env.development
+backend/.env
 .env.test

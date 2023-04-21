@@ -4,9 +4,8 @@ const express = require('express');
 /* Creating an instance of Router */
 const router = express.Router();
 
-const frontendInfo = require('../controllers/frontendInfo')
+const gitlabInterface = require('../controllers/gitlabInterface')
 
-router.post('/search-term', frontendInfo.processFrontendRequest);
-
+router.post('/gitlabInterface', gitlabInterface.processFrontendRequestGitLab);
 
 module.exports = router;

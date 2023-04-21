@@ -12,7 +12,9 @@ const cors = require('cors');
 
 /* Require statements for the routes */
 const usersRouter = require('./routes/users');
-const frontendInfoRouter = require('./routes/frontendInfo');
+const frontendInfoRouter = require('./routes/githubInterface');
+
+require('dotenv').config();
 
 /* Creation of an app instance returned by Express  */
 const app = express();

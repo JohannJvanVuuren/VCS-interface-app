@@ -15,24 +15,30 @@ export const Header = () => {
     /* State variable for capturing the search term that is entered into the input field */
     const [searchTerm, setSearchTerm] = useState('')
 
+    let returnedUsers = [];
 
     /* Function to handle the submit button event when the form is submitted */
    const formSubmitHandler = (event) => {
        event.preventDefault();
        console.log('Form successfully submitted')
+       console.log(searchTerm);
        // alert(`The term you entered was ${searchTerm}`);
 
-       const options = {
-           url: 'http://localhost:8000/search-term',
-           method: 'POST',
-           data: {
-               searchTerm: searchTerm
-           }
-       }
-
-       axios(options)
+       axios.post(`http://localhost:8000/githubInterface`, {
+           searchQuery: searchTerm
+       })
            .then(response => {
-               console.log(response.status)
+               console.log(response.status);
+               console.log(response.data);
+           })
+           .catch(err => {console.log(err.message)})
+
+       axios.post(`http://localhost:8000/gitlabInterface`, {
+           searchQuery: searchTerm
+       })
+           .then(response => {
+               console.log(response.status);
+               console.log(response.data);
            })
            .catch(err => {console.log(err.message)})
 
