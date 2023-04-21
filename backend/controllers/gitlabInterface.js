@@ -27,7 +27,7 @@ const processFrontendRequestGitLab = (req, res) => {
     axios.get(URL, config)
         .then((response) => {
             const users = response.data.items;
-            res.send(response.data.items)
+            res.send(users)
 
         })
         .catch((error) => {
