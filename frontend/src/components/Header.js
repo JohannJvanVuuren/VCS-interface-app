@@ -15,7 +15,7 @@ export const Header = () => {
     /* State variable for capturing the search term that is entered into the input field */
     const [searchTerm, setSearchTerm] = useState('')
 
-    let returnedUsers = [];
+
 
     /* Function to handle the submit button event when the form is submitted */
    const formSubmitHandler = (event) => {
@@ -23,6 +23,7 @@ export const Header = () => {
        console.log('Form successfully submitted')
        console.log(searchTerm);
        // alert(`The term you entered was ${searchTerm}`);
+
 
        axios.post(`http://localhost:8000/githubInterface`, {
            searchQuery: searchTerm

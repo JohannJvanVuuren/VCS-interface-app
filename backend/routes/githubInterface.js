@@ -6,7 +6,7 @@ const router = express.Router();
 
 const githubInterface = require('../controllers/githubInterface')
 
-router.post('/githubInterface', githubInterface.processFrontendRequestGitHub);
+router.post('/', githubInterface.processFrontendRequestGitHub);
 
 
 module.exports = router;

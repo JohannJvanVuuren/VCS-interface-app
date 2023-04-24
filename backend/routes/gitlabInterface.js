@@ -6,6 +6,6 @@ const router = express.Router();
 
 const gitlabInterface = require('../controllers/gitlabInterface')
 
-router.post('/gitlabInterface', gitlabInterface.processFrontendRequestGitLab);
+router.post('/', gitlabInterface.processFrontendRequestGitLab);
 
 module.exports = router;

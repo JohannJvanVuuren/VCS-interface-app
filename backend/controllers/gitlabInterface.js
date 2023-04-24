@@ -12,22 +12,24 @@ const processFrontendRequestGitLab = (req, res) => {
     /* Obtaining the search term from the frontend axios post request sent to route "/githubInterface" */
     const searchTerm = req.body.searchQuery;
 
+
     /* Setting up the config object with the method type and the API key for the axios get request to GitHub API */
     const config = {
         params: {
+            search: `${searchTerm}`,
             per_page: 100
         },
         headers: {
-            Authorization: `Bearer ${process.env.GITHUB_API_KEY}`
+            Authorization: `Bearer ${process.env.GITLAB_API_KEY}`
         }
     }
 
     /* The endpoint of the GitHub API search */
-    const URL = `https://api.github.com/search/users?q=${searchTerm}+repos:%3E1+followers:%3E1`;
+    const URL = `https://gitlab.com/api/v4/users`;
     axios.get(URL, config)
         .then((response) => {
-            const users = response.data.items;
-            res.send(users)
+            const users = response.data;
+            res.send(users);
 
         })
         .catch((error) => {
