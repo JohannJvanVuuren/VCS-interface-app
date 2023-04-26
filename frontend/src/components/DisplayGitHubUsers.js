@@ -6,7 +6,7 @@ import '../sass/main.css';
 import { useLocation } from 'react-router-dom';
 
 /* Definition of the DisplayGitHubUsers component */
-export const DisplayGitHubUsers = (props) => {
+export const DisplayGitHubUsers = () => {
 
     /* Creation of an instance of useLocation */
     const location = useLocation();
