@@ -13,7 +13,7 @@ export const DisplayGitLabUsers = () => {
     /* Storing the state data from the useLocation instance */
     const propsData = location.state;
 
-    console.log(propsData)
+    console.log(propsData.gitLabUserArray)
 
     return(
         <div>

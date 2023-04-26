@@ -8,10 +8,10 @@ import SearchImage from '../images/emyllerMagnifyingGlass.webp';
 /* Import of the axios client */
 import axios from 'axios';
 /* Import of the useState hook required in this module */
-import { useState} from "react";
+import {useState} from "react";
 /* Import of the Link component from React Router to allow hyperlinks to other routes and also in this
 * case to transfer the state variable to another component */
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 /* Definition of the Header component */
 export const Header = () => {
@@ -23,38 +23,36 @@ export const Header = () => {
     const [gitLabUserArray, setGitLabUserArray] = useState([]);
 
     /* Function to handle the submit button event when the form is submitted */
-   const formSubmitHandler = (event) => {
+    const formSubmitHandler = (event) => {
 
-       event.preventDefault();
+        event.preventDefault();
 
-       console.log('Form submitted');
+        /* Setting the search term equal to the value that was entered in the input field */
+        setSearchTerm(event.target.value);
 
+        /* This block is the two axios requests to the backend API. It is necessary to pass the user names */
+        const gitHubRequest = axios.post(`http://localhost:8000/githubInterface`, {
+            searchQuery: searchTerm.toLowerCase()
+        })
+        const gitLabRequest = axios.post(`http://localhost:8000/gitlabInterface`, {
+            searchQuery: searchTerm.toLowerCase()
+        })
 
-       /* Axios posts to the backend route to communicate the search term needed to submit to the external APIs  */
-       axios.post(`http://localhost:8000/githubInterface`, {
-           searchQuery: searchTerm
-       })
-           .then(response => {
-               console.log(response.status);
-               /* Getting the GitHub user array back from the backend and setting capturing it in
-               * a state */
-               setGitHubUserArray(response.data);
-           })
-           .catch(err => {console.log(err.message)})
+        axios.all([gitHubRequest, gitLabRequest]).then(axios.spread((...responses) => {
+            const gitHubResponse = responses[0].data;
+            setGitHubUserArray(gitHubResponse)
+            const gitLabResponse = responses[1].data;
+            setGitLabUserArray(gitLabResponse)
+        })).catch(err => {
+            console.log(err)
+        })
 
-       axios.post(`http://localhost:8000/gitlabInterface`, {
-           searchQuery: searchTerm
-       })
-           .then(response => {
-               console.log(response.status);
-               /* Getting the GitLab user array back from the backend and setting capturing it in
-               * a state */
-               setGitLabUserArray(response.data);
-           })
-           .catch(err => {console.log(err.message)})
-   }
+        /* Resetting the value of the input field */
+        event.target.value = ''
 
-   /* Rendering of the header component */
+    }
+
+    /* Rendering of the header component */
     return (
         <div className={'header-container'}>
             {/* Header banner containing the title and two logos for the two VCS that are being used */}
@@ -87,10 +85,10 @@ export const Header = () => {
                             className={'search-input'}
                             placeholder={'User...'}
                             onKeyDown={event => {
-                                if (event.key === "Enter") {
-                                    setSearchTerm(event.target.value.toLowerCase());
+                                if (event.key === 'Enter') {
                                     formSubmitHandler(event);
-                            }}}
+                                }
+                            }}
                         />
                         {/* A search icon to appear in the input field */}
                         <img

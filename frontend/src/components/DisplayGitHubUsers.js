@@ -6,14 +6,14 @@ import '../sass/main.css';
 import { useLocation } from 'react-router-dom';
 
 /* Definition of the DisplayGitHubUsers component */
-export const DisplayGitHubUsers = () => {
+export const DisplayGitHubUsers = (props) => {
 
     /* Creation of an instance of useLocation */
     const location = useLocation();
     /* Storing the state data from the useLocation instance */
     const propsData = location.state;
 
-    console.log(propsData)
+    console.log(propsData.gitHubUserArray)
 
     return(
         <div>
