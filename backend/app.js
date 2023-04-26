@@ -10,7 +10,7 @@ const cors = require('cors');
 
 
 
-/* Require statements for the routes */
+/* Require statements for the individual routes */
 const usersRouter = require('./routes/users');
 const frontendGitHubRouter = require('./routes/githubInterface');
 const frontendGitLabRouter = require('./routes/gitlabInterface');

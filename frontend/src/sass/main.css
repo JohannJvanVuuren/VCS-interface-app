@@ -70,7 +70,7 @@ body {
 .error {
   font-size: 2rem;
   text-transform: uppercase;
-  color: #FFFF27;
+  color: #32000C;
 }
 
 .error {
@@ -226,6 +226,7 @@ body {
 }
 .header-container .search .input-form .btn-submit {
   padding: 1rem;
+  margin: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

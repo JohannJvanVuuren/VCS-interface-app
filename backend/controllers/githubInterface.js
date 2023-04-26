@@ -24,17 +24,17 @@ const processFrontendRequestGitHub = (req, res) => {
 
     /* The endpoint of the GitHub API search */
     const URL = `https://api.github.com/search/users?q=${searchTerm}+repos:%3E1+followers:%3E1`;
+
+    /* The axios API call using the above settings */
     axios.get(URL, config)
         .then((response) => {
             const users = response.data.items;
             res.send(users);
-
         })
         .catch((error) => {
             console.log(error.message);
         })
-
-    console.log(searchTerm);
 }
 
+/* Export of the controller for use in the respective route file */
 module.exports.processFrontendRequestGitHub = processFrontendRequestGitHub;

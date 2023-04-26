@@ -6,6 +6,7 @@ export const Home = () => {
     return (
         <main className={'home-container'}>
             <section className={'home-content'}>
+                {/* Some text to greet the user and supply basic information on the app */}
                 <h2 className={'home-heading'}>Version Control System Interface Application</h2>
                 <p className={'home-paragraph1'}>
                     This application interfaces with GitHub and GitLab to enable you to search for repositories.

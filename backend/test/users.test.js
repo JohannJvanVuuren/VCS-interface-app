@@ -7,6 +7,7 @@ const request = require('request');
 
 describe('Status and content', function() {
     describe ('Users page', function() {
+        /* This function tests wether a status of 200 is received back */
         it('status', function(done){
             request('http://localhost:8000/users',
                 function(error, response) {
@@ -14,6 +15,7 @@ describe('Status and content', function() {
                     done();
                 });
         });
+        /* This function tests if the content received back is correct */
         it('content', function(done) {
             request('http://localhost:8000/users',
                 function(error, response, body) {

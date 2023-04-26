@@ -5,32 +5,40 @@ import GitHubLogo from '../images/github-logo.png';
 import GitLabLogo from '../images/gitlab-logo.svg';
 import SearchImage from '../images/emyllerMagnifyingGlass.webp';
 
+/* Import of the axios client */
 import axios from 'axios';
+/* Import of the useState hook required in this module */
 import { useState} from "react";
-import {Link} from "react-router-dom";
+/* Import of the Link component from React Router to allow hyperlinks to other routes and also in this
+* case to transfer the state variable to another component */
+import { Link } from "react-router-dom";
 
 /* Definition of the Header component */
 export const Header = () => {
 
-    /* State variable for capturing the search term that is entered into the input field */
-    const [searchTerm, setSearchTerm] = useState('')
-
-
+    /* State variables for capturing the search term that is entered into the input field as well as
+    * the two user arrays that are returned from the backend */
+    const [searchTerm, setSearchTerm] = useState('');
+    const [gitHubUserArray, setGitHubUserArray] = useState([]);
+    const [gitLabUserArray, setGitLabUserArray] = useState([]);
 
     /* Function to handle the submit button event when the form is submitted */
    const formSubmitHandler = (event) => {
+
        event.preventDefault();
-       console.log('Form successfully submitted')
-       console.log(searchTerm);
-       // alert(`The term you entered was ${searchTerm}`);
+
+       console.log('Form submitted');
 
 
+       /* Axios posts to the backend route to communicate the search term needed to submit to the external APIs  */
        axios.post(`http://localhost:8000/githubInterface`, {
            searchQuery: searchTerm
        })
            .then(response => {
                console.log(response.status);
-               console.log(response.data);
+               /* Getting the GitHub user array back from the backend and setting capturing it in
+               * a state */
+               setGitHubUserArray(response.data);
            })
            .catch(err => {console.log(err.message)})
 
@@ -39,14 +47,12 @@ export const Header = () => {
        })
            .then(response => {
                console.log(response.status);
-               console.log(response.data);
+               /* Getting the GitLab user array back from the backend and setting capturing it in
+               * a state */
+               setGitLabUserArray(response.data);
            })
            .catch(err => {console.log(err.message)})
-
-
    }
-
-
 
    /* Rendering of the header component */
     return (
@@ -80,8 +86,11 @@ export const Header = () => {
                             type={'text'}
                             className={'search-input'}
                             placeholder={'User...'}
-                            /* The onChange event handler that stores the search term in the state variable */
-                            onChange={(event) => setSearchTerm(event.target.value)}
+                            onKeyDown={event => {
+                                if (event.key === "Enter") {
+                                    setSearchTerm(event.target.value.toLowerCase());
+                                    formSubmitHandler(event);
+                            }}}
                         />
                         {/* A search icon to appear in the input field */}
                         <img
@@ -89,13 +98,28 @@ export const Header = () => {
                             src={SearchImage}
                             alt={'Search'}
                         />
-                        {/* The submit button that will trigger the form submit event handler referred to above */}
-                        <button
-                            type={'submit'}
-                            className={'btn btn-submit'}
+                        {/* Link components used to link to the respective VCS providers and also to pass the
+                         user arrays to the components*/}
+                        <Link
+                            to={'/displayGitHubUsers'}
+                            state={{gitHubUserArray: gitHubUserArray}}
                         >
-                            Submit
-                        </button>
+                            <button
+                                className={'btn btn-submit'}
+                            >
+                                GitHub
+                            </button>
+                        </Link>
+                        <Link
+                            to={'/displayGitLabUsers'}
+                            state={{gitLabUserArray: gitLabUserArray}}
+                        >
+                            <button
+                                className={'btn btn-submit'}
+                            >
+                                GitLab
+                            </button>
+                        </Link>
                     </form>
                 </div>
             </div>
