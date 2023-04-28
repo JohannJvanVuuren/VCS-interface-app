@@ -11,16 +11,16 @@ export const DisplayGitLabUsers = () => {
     /* Creation of an instance of useLocation */
     const location = useLocation();
     /* Storing the state data from the useLocation instance */
-    const propsData = location.state;
+    const data = location.state.gitLabUserArray;
 
-    console.log(propsData.gitLabUserArray)
+    console.log(data);
 
     return(
         <div>
             <h2 className="mb-4">
                 React Send / Get State using Link Component Example
             </h2>
-            {/*<p>Login: {propsData.gitHubUserArray[0].login}</p>*/}
+            <p>Login: {data[0].username}</p>
         </div>
     )
 }

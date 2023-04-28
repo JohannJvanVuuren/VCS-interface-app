@@ -3,24 +3,66 @@ import '../sass/main.css';
 
 /* Import of the useLocation hook which will enable to get the state passed via the Link components in
 * the Header component */
-import { useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
+import {useEffect, useState} from "react";
+import ReactPaginate from 'react-paginate';
+
 
 /* Definition of the DisplayGitHubUsers component */
 export const DisplayGitHubUsers = () => {
 
+    /* Declaration and initialisation of state variables */
+    const [users, setUsers] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [currentUsers, setCurrentUsers] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+    const [usersOffset, setUsersOffset] = useState(0);
+
+    /* Setting the user that will be displayed per page. This can be changed at a later stage so that the
+    * value is obtained from the user */
+    const usersPerPage = 10;
+
     /* Creation of an instance of useLocation */
     const location = useLocation();
     /* Storing the state data from the useLocation instance */
-    const propsData = location.state;
+    const data = location.state.gitHubUserArray;
 
-    console.log(propsData.gitHubUserArray)
 
-    return(
-        <div>
-            <h2 className="mb-4">
-                React Send / Get State using Link Component Example
-            </h2>
-            <p>Login: {propsData.gitHubUserArray[0].login}</p>
+
+    useEffect(() => {
+        const endOffset = usersOffset + usersPerPage;
+        setCurrentUsers(data.slice(usersOffset, endOffset));
+        setPageCount((Math.ceil(data.length / usersPerPage)))
+    }, [data, usersOffset]);
+
+    const pageClickHandler = (event) => {
+        const newOffset = (event.selected * 8) % data.length;
+        setUsersOffset(newOffset);
+    }
+
+    return (
+        <div className={'github-table'}>
+            <h1>GitHub User Listing</h1>
+            <table className={'gitHubTable'}>
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Repo URL</th>
+                    <th>Avatar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {data.map((item, index) => {
+                    return (
+                        <tr key={index}>
+                            <td>{item.login}</td>
+                            <td>{item.repos_url}</td>
+                            <td>{item.avatar_url}</td>
+                        </tr>
+                    )
+                })}
+                </tbody>
+            </table>
         </div>
     )
 

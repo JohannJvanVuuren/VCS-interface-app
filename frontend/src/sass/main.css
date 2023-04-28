@@ -73,6 +73,13 @@ body {
   color: #32000C;
 }
 
+/* Typography of the pagination system */
+.pagination-container .pagination-item {
+  letter-spacing: 1rem;
+  line-height: 1.43;
+  font-size: 1.3rem;
+}
+
 .error {
   background-color: rgba(0, 0, 0, 0.2);
   padding: 5rem;
@@ -144,6 +151,26 @@ body {
   padding: 2rem;
   height: 100vh;
   position: relative;
+}
+
+.github-table {
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.github-table h1 {
+  margin: 3rem 0;
+}
+.github-table .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .error {

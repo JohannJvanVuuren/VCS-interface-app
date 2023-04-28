@@ -59,5 +59,14 @@ body {
   font-size: 2rem;
   text-transform: uppercase;
   color: $dark-burgundy;
+}
 
+/* Typography of the pagination system */
+.pagination-container {
+
+  .pagination-item {
+    letter-spacing: 1rem;
+    line-height: 1.43;
+    font-size: 1.3rem;
+  }
 }
