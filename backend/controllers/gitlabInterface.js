@@ -11,13 +11,15 @@ const processFrontendRequestGitLab = (req, res) => {
 
     /* Obtaining the search term from the frontend axios post request sent to route "/gitlabInterface" */
     const searchTerm = req.body.searchQuery;
+    const page = req.body.page;
 
 
     /* Setting up the config object with the method type and the API key for the axios get request to GitLab API */
     const config = {
         params: {
             search: searchTerm,
-            per_page: 100
+            per_page: 12,
+            page: page
         },
         headers: {
             Authorization: `Bearer ${process.env.GITLAB_API_KEY}`

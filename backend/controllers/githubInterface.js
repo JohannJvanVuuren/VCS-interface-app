@@ -11,14 +11,18 @@ const processFrontendRequestGitHub = (req, res) => {
 
     /* Obtaining the search term from the frontend axios post request sent to route "/githubInterface" */
     const searchTerm = req.body.searchQuery;
+    const pageNumber = req.body.pageNumber;
+
+    console.log(pageNumber);
 
     /* Setting up the config object with the method type and the API key for the axios get request to GitHub API */
     const config = {
         params: {
-            per_page: 100
+            per_page: 12,
+            page: pageNumber
         },
         headers: {
-            Authorization: `Bearer ${process.env.GITHUB_API_KEY}`
+            Authorization: `Bearer ${process.env.GITHUB_API_KEY}`,
         }
     }
 

@@ -18,9 +18,7 @@ export const Header = () => {
 
     /* State variables for capturing the search term that is entered into the input field as well as
     * the two user arrays that are returned from the backend */
-    const [searchTerm, setSearchTerm] = useState('');
-    const [gitHubUserArray, setGitHubUserArray] = useState([]);
-    const [gitLabUserArray, setGitLabUserArray] = useState([]);
+    const [user, setUser] = useState('');
 
     /* Function to handle the submit button event when the form is submitted */
     const formSubmitHandler = (event) => {
@@ -28,24 +26,7 @@ export const Header = () => {
         event.preventDefault();
 
         /* Setting the search term equal to the value that was entered in the input field */
-        setSearchTerm(event.target.value);
-
-        /* This block is the two axios requests to the backend API. It is necessary to pass the user names */
-        const gitHubRequest = axios.post(`http://localhost:8000/githubInterface`, {
-            searchQuery: searchTerm.toLowerCase()
-        })
-        const gitLabRequest = axios.post(`http://localhost:8000/gitlabInterface`, {
-            searchQuery: searchTerm.toLowerCase()
-        })
-
-        axios.all([gitHubRequest, gitLabRequest]).then(axios.spread((...responses) => {
-            const gitHubResponse = responses[0].data;
-            setGitHubUserArray(gitHubResponse)
-            const gitLabResponse = responses[1].data;
-            setGitLabUserArray(gitLabResponse)
-        })).catch(err => {
-            console.log(err)
-        })
+        setUser(event.target.value);
 
         /* Resetting the value of the input field */
         event.target.value = ''
@@ -97,10 +78,10 @@ export const Header = () => {
                             alt={'Search'}
                         />
                         {/* Link components used to link to the respective VCS providers and also to pass the
-                         user arrays to the components*/}
+                         search term to the components*/}
                         <Link
                             to={'/displayGitHubUsers'}
-                            state={{gitHubUserArray: gitHubUserArray}}
+                            state={{user: user}}
                         >
                             <button
                                 className={'btn btn-submit'}
@@ -110,7 +91,7 @@ export const Header = () => {
                         </Link>
                         <Link
                             to={'/displayGitLabUsers'}
-                            state={{gitLabUserArray: gitLabUserArray}}
+                            state={{user: user}}
                         >
                             <button
                                 className={'btn btn-submit'}

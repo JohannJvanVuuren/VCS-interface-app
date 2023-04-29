@@ -62,11 +62,20 @@ body {
 }
 
 /* Typography of the pagination system */
-.pagination-container {
+.vcs-container {
 
-  .pagination-item {
-    letter-spacing: 1rem;
-    line-height: 1.43;
-    font-size: 1.3rem;
+  h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 6rem 0;
+    text-shadow: 1px 1px 3px $dark-shadow;
   }
+
+  p {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+
 }
