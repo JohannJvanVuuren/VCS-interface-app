@@ -6,8 +6,8 @@ import Spinner from 'react-bootstrap/Spinner';
 
 /* Import of the useLocation hook which will enable to get the state passed via the Link components in
 * the Header component */
-import { useLocation } from 'react-router-dom';
-import {useEffect, useState} from "react";
+import { useLocation, Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 /* Import of the axios client to make the API calls to the backend */
 import axios from "axios";
@@ -37,7 +37,6 @@ export const DisplayGitHubUsers = () => {
             .then(response => {
                 setUsers(response.data);
                 setIsLoading(false);
-                console.log(response.data);
                 return response.data;
             })
             .catch(err => {
@@ -45,18 +44,31 @@ export const DisplayGitHubUsers = () => {
                 setIsLoading(false);
             });
 
-    }, [page]);
+    }, [page, user]);
 
     return (
         <div className={'vcs-container'}>
-            <h1>GitHub User Listing</h1>
+            <h1>Users Listing</h1>
             <div className={'vcs-display'}>
                 {users.map((user, index) => {
                     return (
                         <div className={'user-wrapper'} key={index}>
-                            <img src={user.avatar_url} alt={user.login} />
-                            <p>{user.login}</p>
-                            <a href={user.repos_url} target={'_blank'} rel="noreferrer">Repositories</a>
+                            <div className={'avatar'}>
+                                <a href={user.html_url} target={'_blank'} rel="noreferrer">
+                                    <img src={user.avatar_url} alt={user.login}/>
+                                </a>
+                            </div>
+                            <a classname={'username-link'} href={user.html_url} target={'_blank'} rel="noreferrer">
+                                <p className={'username'}>{user.login}</p>
+                            </a>
+                            <a className={'web-url'} href={user.html_url} target={'_blank'} rel="noreferrer">GitHub Profile</a>
+                            <Link
+                                className={'repo-link'}
+                                to={'/githubRepos'}
+                                state={{user: user}}
+                            >
+                                Repositories
+                            </Link>
                         </div>
                     )
                 })}

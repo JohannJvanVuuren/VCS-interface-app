@@ -13,8 +13,6 @@ const processFrontendRequestGitHub = (req, res) => {
     const searchTerm = req.body.searchQuery;
     const pageNumber = req.body.pageNumber;
 
-    console.log(pageNumber);
-
     /* Setting up the config object with the method type and the API key for the axios get request to GitHub API */
     const config = {
         params: {

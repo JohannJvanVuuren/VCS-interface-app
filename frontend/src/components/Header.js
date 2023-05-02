@@ -5,13 +5,11 @@ import GitHubLogo from '../images/github-logo.png';
 import GitLabLogo from '../images/gitlab-logo.svg';
 import SearchImage from '../images/emyllerMagnifyingGlass.webp';
 
-/* Import of the axios client */
-import axios from 'axios';
 /* Import of the useState hook required in this module */
-import {useState} from "react";
+import { useState } from "react";
 /* Import of the Link component from React Router to allow hyperlinks to other routes and also in this
 * case to transfer the state variable to another component */
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 /* Definition of the Header component */
 export const Header = () => {
@@ -81,7 +79,10 @@ export const Header = () => {
                          search term to the components*/}
                         <Link
                             to={'/displayGitHubUsers'}
-                            state={{user: user}}
+                            state={{
+                                user: user,
+                                github: true
+                            }}
                         >
                             <button
                                 className={'btn btn-submit'}
@@ -91,7 +92,10 @@ export const Header = () => {
                         </Link>
                         <Link
                             to={'/displayGitLabUsers'}
-                            state={{user: user}}
+                            state={{
+                                user: user,
+                                gitlab: true
+                            }}
                         >
                             <button
                                 className={'btn btn-submit'}

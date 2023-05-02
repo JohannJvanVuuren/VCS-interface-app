@@ -5,6 +5,7 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: $off-white-blue;
+  text-align: center;
 }
 
 /* Typography of header */
@@ -73,9 +74,35 @@ body {
     text-shadow: 1px 1px 3px $dark-shadow;
   }
 
-  p {
-    font-size: 1rem;
-    margin: 0 1rem;
+  .username-link {
+    text-decoration: none;
+
+  }
+
+  .username {
+    font-size: 2rem;
+    margin: 1rem 1rem;
+    text-align: center;
+    color: $light-yellow;
+    text-shadow: 1px 1px 3px $dark-shadow;
+  }
+
+  .web-url {
+    text-decoration: none;
+    font-size: 1.4rem;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: $dark-yellow;
+    text-shadow: 1px 1px 3px $dark-shadow;
+  }
+
+  .repo-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px $dark-shadow;
   }
 
 }

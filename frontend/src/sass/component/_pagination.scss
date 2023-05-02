@@ -13,15 +13,21 @@
       background: $button-dark;
     }
   }
+
+  .avatar {
+    box-shadow: 0.5rem 0.5rem 3rem $solid-black,
+    -0.5rem -0.5rem 3rem $mid-blue;
+  }
 }
 
+
+/* Styling of the bootstrap pagination bar from the default theme to one that suites the current component */
 span.page-link,
 a.page-link {
 
   background-color: $mid-shadow !important;
   border-color: #000015 !important;
   backdrop-filter: blur(10px);
-
 }
 
 

@@ -3,6 +3,7 @@ import '../sass/main.css';
 /* Import of React-Bootstrap components needed in the styling of this component */
 import Pagination from 'react-bootstrap/Pagination';
 import Spinner from 'react-bootstrap/Spinner';
+import { Link } from 'react-router-dom';
 
 /* Import of the useLocation hook which will enable to get the state passed via the Link components in
 * the Header component */
@@ -30,7 +31,7 @@ export const DisplayGitLabUsers = () => {
     useEffect(() => {
         setIsLoading(true);
 
-        const gitHubRequest = axios.post(`http://localhost:8000/gitlabInterface`, {
+        axios.post(`http://localhost:8000/gitlabInterface`, {
             searchQuery: user.toLowerCase(),
             page: page
         })
@@ -44,7 +45,7 @@ export const DisplayGitLabUsers = () => {
                 console.log(err);
                 setIsLoading(false);
             });
-    }, [page]);
+    }, [page, user]);
 
 
 
@@ -55,9 +56,22 @@ export const DisplayGitLabUsers = () => {
                 {users.map((user, index) => {
                     return (
                         <div className={'user-wrapper'} key={index}>
-                            <img src={user.avatar_url} alt={user.username} />
-                            <p>{user.username}</p>
-                            <a href={user.web_url} target={'_blank'} rel="noreferrer">Repositories</a>
+                            <div className={'avatar'}>
+                                <a href={user.web_url} target={'_blank'} rel="noreferrer">
+                                    <img src={user.avatar_url} alt={user.username}/>
+                                </a>
+                            </div>
+                            <a className={'username-link'} href={user.web_url} target={'_blank'} rel="noreferrer">
+                                <p className={'username'}>{user.username}</p>
+                            </a>
+                            <a className={'web-url'} href={user.web_url} target={'_blank'} rel="noreferrer">GitLab Profile</a>
+                        <Link
+                            className={'repo-link'}
+                            to={'/gitlabRepos'}
+                            state={{user: user}}
+                        >
+                            Repositories
+                        </Link>
                         </div>
                     )
                 })}

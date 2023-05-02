@@ -14,6 +14,9 @@ const cors = require('cors');
 const usersRouter = require('./routes/users');
 const frontendGitHubRouter = require('./routes/githubInterface');
 const frontendGitLabRouter = require('./routes/gitlabInterface');
+const githubRepos = require('./routes/githubRepos');
+const githubCommits = require('./routes/githubCommits');
+const gitlabRepos = require('./routes/gitlabRepos');
 
 require('dotenv').config();
 
@@ -49,6 +52,9 @@ helmet.contentSecurityPolicy({
 app.use('/users', usersRouter);
 app.use('/githubInterface', frontendGitHubRouter);
 app.use('/gitlabInterface', frontendGitLabRouter);
+app.use('/githubRepos', githubRepos);
+app.use('/githubCommits', githubCommits);
+app.use('/gitlabRepos', gitlabRepos);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -27,6 +27,7 @@ html {
 body {
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   color: #C6C6FF;
+  text-align: center;
 }
 
 /* Typography of header */
@@ -82,9 +83,31 @@ body {
   margin: 6rem 0;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
-.vcs-container p {
-  font-size: 1rem;
-  margin: 0 1rem;
+.vcs-container .username-link {
+  text-decoration: none;
+}
+.vcs-container .username {
+  font-size: 2rem;
+  margin: 1rem 1rem;
+  text-align: center;
+  color: #FFFF62;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+.vcs-container .web-url {
+  text-decoration: none;
+  font-size: 1.4rem;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #D8D800;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+.vcs-container .repo-link {
+  text-decoration: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .error {
@@ -133,7 +156,11 @@ body {
 .vcs-display .button:hover {
   background: #EAEAEA;
 }
+.vcs-display .avatar {
+  box-shadow: 0.5rem 0.5rem 3rem rgb(0, 0, 0), -0.5rem -0.5rem 3rem #005DB4;
+}
 
+/* Styling of the bootstrap pagination bar from the default theme to one that suites the current component */
 span.page-link,
 a.page-link {
   background-color: rgba(0, 0, 0, 0.5) !important;
@@ -181,26 +208,6 @@ a.page-link {
   padding: 2rem;
   height: 100vh;
   position: relative;
-}
-
-.github-table {
-  max-width: 100rem;
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 1rem;
-  margin-bottom: 2.5rem;
-}
-.github-table h1 {
-  margin: 3rem 0;
-}
-.github-table .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
 }
 
 .error {
@@ -253,8 +260,13 @@ a.page-link {
   margin-bottom: 2.5rem;
   place-items: center;
 }
-.vcs-display img {
-  width: 10rem;
+.vcs-display .avatar {
+  width: 15rem;
+  margin: 0 auto;
+}
+.vcs-display .avatar img {
+  width: 100%;
+  height: auto;
 }
 .vcs-display user-wrapper {
   width: 100%;
