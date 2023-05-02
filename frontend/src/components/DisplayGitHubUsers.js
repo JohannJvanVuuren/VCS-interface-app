@@ -58,7 +58,7 @@ export const DisplayGitHubUsers = () => {
                                     <img src={user.avatar_url} alt={user.login}/>
                                 </a>
                             </div>
-                            <a classname={'username-link'} href={user.html_url} target={'_blank'} rel="noreferrer">
+                            <a className={'username-link'} href={user.html_url} target={'_blank'} rel="noreferrer">
                                 <p className={'username'}>{user.login}</p>
                             </a>
                             <a className={'web-url'} href={user.html_url} target={'_blank'} rel="noreferrer">GitHub Profile</a>

@@ -5,7 +5,6 @@ const axios = require('axios');
 
 const getGitLabRepos = (req, res) => {
 
-    const user = req.body.user;
     const id = req.body.id;
 
     const config = {
