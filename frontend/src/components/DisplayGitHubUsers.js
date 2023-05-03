@@ -17,7 +17,6 @@ export const DisplayGitHubUsers = () => {
 
     /* Declaration and initialisation of state variables */
     const [users, setUsers] = useState([]);
-    const [webUrl, setWebUrl] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
 

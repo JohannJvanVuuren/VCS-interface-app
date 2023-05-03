@@ -28,7 +28,7 @@ export const GitHubCommits = () => {
         <div>
             {commitsList.map((commit, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         <p>Date: {commit.comitted_date} <span>Comment: {commit.title}</span></p>
                     </div>
                 )

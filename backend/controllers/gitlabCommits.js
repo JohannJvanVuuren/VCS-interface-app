@@ -4,8 +4,6 @@ require('dotenv').config({path: '../.env'});
 const axios = require('axios');
 
 const getGitLabCommits = (req, res) => {
-    const user = req.body.user;
-    const repoName = req.body.repoName;
 
     const repoId = req.body.repoId;
 

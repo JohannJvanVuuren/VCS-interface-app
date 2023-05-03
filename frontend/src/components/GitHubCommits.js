@@ -30,7 +30,7 @@ export const GitHubCommits = () => {
         <div className={'commit-container'}>
             {commitsList.map((commit, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         <p>Date: {commit.commit.author.date} <span>Comment: {commit.commit.message}</span></p>
                     </div>
                 )

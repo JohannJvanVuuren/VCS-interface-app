@@ -2,7 +2,6 @@
 * This test is to evaluate the general functioning of the backend
 */
 const should = require('chai').should();
-const assertChai = require('chai').assert;
 const assert = require('node:assert')
 const request = require('request');
 
