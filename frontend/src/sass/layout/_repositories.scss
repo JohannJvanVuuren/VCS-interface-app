@@ -1,0 +1,21 @@
+.repo-container {
+  display: flex;
+  flex-direction: column;
+
+  .heading-primary {
+    display: inline-block;
+  }
+
+  .repo-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .repo-wrapper {
+      margin: 2rem;
+    }
+  }
+
+
+}
+

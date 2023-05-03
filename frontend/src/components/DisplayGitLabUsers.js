@@ -3,11 +3,11 @@ import '../sass/main.css';
 /* Import of React-Bootstrap components needed in the styling of this component */
 import Pagination from 'react-bootstrap/Pagination';
 import Spinner from 'react-bootstrap/Spinner';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 /* Import of the useLocation hook which will enable to get the state passed via the Link components in
 * the Header component */
-import { useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import {useEffect, useState} from "react";
 
 /* Import of the axios client to make the API calls to the backend */
@@ -48,12 +48,12 @@ export const DisplayGitLabUsers = () => {
     }, [page, user]);
 
 
-
-    return(
+    return (
         <div className={'vcs-container'}>
             <h1>GitLab User Listing</h1>
             <div className={'vcs-display'}>
                 {users.map((user, index) => {
+                    const webUrl = user.web_url;
                     return (
                         <div className={'user-wrapper'} key={index}>
                             <div className={'avatar'}>
@@ -64,14 +64,16 @@ export const DisplayGitLabUsers = () => {
                             <a className={'username-link'} href={user.web_url} target={'_blank'} rel="noreferrer">
                                 <p className={'username'}>{user.username}</p>
                             </a>
-                            <a className={'web-url'} href={user.web_url} target={'_blank'} rel="noreferrer">GitLab Profile</a>
-                        <Link
-                            className={'repo-link'}
-                            to={'/gitlabRepos'}
-                            state={{user: user}}
-                        >
-                            Repositories
-                        </Link>
+                            <Link
+                                className={'repo-link'}
+                                to={'/gitlabRepos'}
+                                state={{
+                                    user: user,
+                                    webUrl: webUrl
+                                }}
+                            >
+                                Repositories
+                            </Link>
                         </div>
                     )
                 })}
@@ -86,15 +88,15 @@ export const DisplayGitLabUsers = () => {
                         <Pagination size={'lg'} className={'pagination-item'}>
                             <Pagination.First
                                 disabled={page === 1}
-                                onClick={()=> setPage(1)}
+                                onClick={() => setPage(1)}
                             />
                             <Pagination.Prev
                                 disabled={page === 1}
                                 onClick={() => setPage(prevState => prevState - 1)}
                             />
-                            <Pagination.Ellipsis />
-                            <Pagination.Item  active>{page}</Pagination.Item>
-                            <Pagination.Ellipsis />
+                            <Pagination.Ellipsis/>
+                            <Pagination.Item active>{page}</Pagination.Item>
+                            <Pagination.Ellipsis/>
                             <Pagination.Next
                                 disabled={page === users.length}
                                 onClick={() => setPage(prevState => prevState + 1)}/>

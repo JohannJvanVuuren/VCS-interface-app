@@ -27,7 +27,7 @@ export const GitHubCommits = () => {
     }, [user, repoName]);
 
     return (
-        <div>
+        <div className={'commit-container'}>
             {commitsList.map((commit, index) => {
                 return (
                     <div>

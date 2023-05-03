@@ -5,6 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import {useLocation, Link} from 'react-router-dom';
 import {useEffect, useState} from "react";
 import axios from 'axios';
+
 export const GitLabRepos = () => {
 
     const [repos, setRepos] = useState([]);
@@ -13,6 +14,7 @@ export const GitLabRepos = () => {
     const location = useLocation();
     const user = location.state.user.username;
     const id = location.state.user.id;
+    const webUrl = location.state.webUrl;
 
 
     useEffect(() => {
@@ -40,36 +42,48 @@ export const GitLabRepos = () => {
     }, [user, id]);
 
 
-
     return (
-        <div>
-            <h1>User</h1>
-            <h2>Repositories</h2>
-            {isLoading ?
-                <div className={'mx-auto'}>
-                    <Spinner animation="border" variant='light'/>
+        <div className={'repo-container'}>
+            <div className={'heading'}>
+                <div><a href={webUrl} target={'_blank'} rel="noreferrer">
+                    <h1 className={'heading-primary'}>{user}</h1>
+                </a>
                 </div>
-            :
-                repos.length === 0 ?
-                    <h2>No records found</h2>
-            :
-                repos.map((repo, index) => {
-                    return (
-                        <div className={'repo-wrapper'} key={index}>
-                            <p>{repo.name}</p>
-                            <Link
-                                to={'/gitHubCommits'}
-                                state={{
-                                    repoName: repo.name,
-                                    repoId: repo.id,
-                                    user: user
-                                }}
-                            >
-                                Commits
-                            </Link>
+
+                <h2>Repositories</h2>
+            </div>
+            <div>
+                {isLoading ?
+                    <div className={'mx-auto'}>
+                        <Spinner animation="border" variant='light'/>
+                    </div>
+                    :
+                    repos.length === 0 ?
+                        <h2 className={'no-records'}>No records found</h2>
+                        :
+                        <div className={'repo-flexbox'}>
+                            {repos.map((repo, index) => {
+                                return (
+                                    <div className={'repo-wrapper'} key={index}>
+                                        <a href={`https://gitlab.com/${user}/files/${repo.name}`} target={'_blank'} rel="noreferrer">
+                                            <p>{repo.name}</p>
+                                        </a>
+                                        <Link
+                                            to={'/gitHubCommits'}
+                                            state={{
+                                                repoName: repo.name,
+                                                repoId: repo.id,
+                                                user: user
+                                            }}
+                                        >
+                                            Commits
+                                        </Link>
+                                    </div>
+                                )
+                            })}
                         </div>
-                    )
-                })}
+                }
+            </div>
         </div>
     )
 

@@ -9,7 +9,8 @@
 
 ### 1. Introduction
 
-To follow.
+NB GITLAB REPOS AND COMMITS
+NB Because of different API structures the two VCS were treated separately
 
 ### 2. Installation
 

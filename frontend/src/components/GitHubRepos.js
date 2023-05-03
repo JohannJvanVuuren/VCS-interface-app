@@ -14,6 +14,8 @@ export const GitHubRepos = () => {
 
     const location = useLocation();
     const user = location.state.user.login;
+    const webUrl = location.state.webUrl;
+
 
     useEffect(() => {
 
@@ -36,36 +38,52 @@ export const GitHubRepos = () => {
     }, [user]);
 
     return (
-        <div>
-            <h1>{user}</h1>
-            <h2>Repositories</h2>
+        <div className={'repo-container'}>
+            <div className={'heading'}>
+                <div>
+                    <a href={webUrl} target={'_blank'} rel="noreferrer">
+                        <h1 className={'heading-primary'}>{user}</h1>
+                    </a>
+                </div>
+                <h2>Repositories</h2>
+            </div>
+            <div>
             {isLoading ?
                 <div className={'mx-auto'}>
                     <Spinner animation="border" variant='light'/>
                 </div>
-
-             :
+                :
                 repos.length === 0 ?
 
                     <h2>No records found</h2>
 
-                :
-                repos.map((repo, index) => {
-                    return (
-                        <div className={'repo-wrapper'} key={index}>
-                            <p>{repo.name}</p>
-                            <Link
-                                to={'/gitHubCommits'}
-                                state={{
-                                    repoName: repo.name,
-                                    user: user
-                                }}
-                            >
-                                Commits
-                            </Link>
-                        </div>
-                    )
-                })}
+                    :
+                    <div className={'repo-flexbox'}>
+                        {repos.map((repo, index) => {
+                            return (
+                                <div className={'repo-wrapper'} key={index}>
+                                    <a className={'repo-url'} href={repo.html_url} target={'_blank'} rel="noreferrer">
+                                        <p>{repo.name}</p>
+                                    </a>
+                                    <Link
+
+                                        to={'/gitHubCommits'}
+                                        className={'commit-links'}
+                                        state={{
+                                            repoName: repo.name,
+                                            user: user
+                                        }}
+                                    >
+                                        Commits
+                                    </Link>
+                                </div>
+                            )
+                        })}
+                    </div>
+
+
+            }
+            </div>
 
         </div>
     )

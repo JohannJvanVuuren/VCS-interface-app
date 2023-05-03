@@ -31,6 +31,7 @@ const processFrontendRequestGitHub = (req, res) => {
     axios.get(URL, config)
         .then((response) => {
             const users = response.data.items;
+            console.log(users);
             res.send(users);
         })
         .catch((error) => {

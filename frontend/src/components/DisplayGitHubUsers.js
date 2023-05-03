@@ -6,8 +6,8 @@ import Spinner from 'react-bootstrap/Spinner';
 
 /* Import of the useLocation hook which will enable to get the state passed via the Link components in
 * the Header component */
-import { useLocation, Link } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import {useLocation, Link} from 'react-router-dom';
+import {useEffect, useState} from "react";
 
 /* Import of the axios client to make the API calls to the backend */
 import axios from "axios";
@@ -17,6 +17,7 @@ export const DisplayGitHubUsers = () => {
 
     /* Declaration and initialisation of state variables */
     const [users, setUsers] = useState([]);
+    const [webUrl, setWebUrl] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [page, setPage] = useState(1);
 
@@ -51,6 +52,7 @@ export const DisplayGitHubUsers = () => {
             <h1>Users Listing</h1>
             <div className={'vcs-display'}>
                 {users.map((user, index) => {
+                    const webUrl = user.html_url;
                     return (
                         <div className={'user-wrapper'} key={index}>
                             <div className={'avatar'}>
@@ -58,17 +60,22 @@ export const DisplayGitHubUsers = () => {
                                     <img src={user.avatar_url} alt={user.login}/>
                                 </a>
                             </div>
-                            <a className={'username-link'} href={user.html_url} target={'_blank'} rel="noreferrer">
-                                <p className={'username'}>{user.login}</p>
-                            </a>
-                            <a className={'web-url'} href={user.html_url} target={'_blank'} rel="noreferrer">GitHub Profile</a>
-                            <Link
-                                className={'repo-link'}
-                                to={'/githubRepos'}
-                                state={{user: user}}
-                            >
-                                Repositories
-                            </Link>
+                            <div className={'links-wrapper'}>
+                                <a className={'username-link'} href={user.html_url} target={'_blank'}
+                                   rel="noreferrer">
+                                    <p className={'username'}>{user.login}</p>
+                                </a>
+                                <Link
+                                    className={'repo-link'}
+                                    to={'/githubRepos'}
+                                    state={{
+                                        user: user,
+                                        webUrl: webUrl
+                                    }}
+                                >
+                                    Repositories
+                                </Link>
+                            </div>
                         </div>
                     )
                 })}
@@ -83,15 +90,15 @@ export const DisplayGitHubUsers = () => {
                         <Pagination size={'lg'} className={'pagination-item'}>
                             <Pagination.First
                                 disabled={page === 1}
-                                onClick={()=> setPage(1)}
+                                onClick={() => setPage(1)}
                             />
                             <Pagination.Prev
                                 disabled={page === 1}
                                 onClick={() => setPage(prevState => prevState - 1)}
                             />
-                            <Pagination.Ellipsis />
-                            <Pagination.Item  active>{page}</Pagination.Item>
-                            <Pagination.Ellipsis />
+                            <Pagination.Ellipsis/>
+                            <Pagination.Item active>{page}</Pagination.Item>
+                            <Pagination.Ellipsis/>
                             <Pagination.Next
                                 disabled={page === users.length}
                                 onClick={() => setPage(prevState => prevState + 1)}/>

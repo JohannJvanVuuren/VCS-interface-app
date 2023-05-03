@@ -18,6 +18,10 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  max-width: 100vw;
+}
+
 /* Import to enable the use of variables */ /* Colour schema */
 /* Blues */
 /* Yellows */
@@ -27,7 +31,6 @@ html {
 body {
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   color: #C6C6FF;
-  text-align: center;
 }
 
 /* Typography of header */
@@ -42,6 +45,7 @@ body {
 
 /* Typography of the home page */
 .home-container {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
   /* Centering of all text */
   /* Styling of heading */
   /* Sizing of three paragraphs */
@@ -59,12 +63,15 @@ body {
 }
 .home-container .home-paragraph1 {
   font-size: 2rem;
+  color: #FFFF27;
 }
 .home-container .home-paragraph2 {
   font-size: 1.8rem;
+  color: #FFFF62;
 }
 .home-container .home-paragraph3 {
   font-size: 1.6rem;
+  color: #FFFFD8;
 }
 
 /* Typography of the error page */
@@ -75,6 +82,9 @@ body {
 }
 
 /* Typography of the pagination system */
+.vcs-container {
+  text-align: center;
+}
 .vcs-container h1 {
   font-size: 4rem;
   font-weight: 300;
@@ -92,6 +102,10 @@ body {
   text-align: center;
   color: #FFFF62;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  transition: all 200ms ease-in-out;
+}
+.vcs-container .username:hover {
+  transform: scale(1.5);
 }
 .vcs-container .web-url {
   text-decoration: none;
@@ -102,12 +116,76 @@ body {
   cursor: pointer;
   color: #D8D800;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+}
+.vcs-container .web-url:hover {
+  color: #65650C;
 }
 .vcs-container .repo-link {
   text-decoration: none;
   font-size: 1.4rem;
   text-transform: uppercase;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+}
+
+/* Typography of the repository display page page */
+.repo-container {
+  margin: 3rem;
+}
+.repo-container a {
+  text-decoration: none;
+}
+.repo-container .heading {
+  text-align: center;
+}
+.repo-container .heading-primary {
+  color: #FFFF27;
+  margin-bottom: 1rem;
+  transition: all 200ms ease-in-out;
+  font-size: 3rem;
+  text-align: center;
+}
+.repo-container .heading-primary:hover {
+  transform: scale(1.5);
+}
+.repo-container h2 {
+  color: #FFFF62;
+  text-transform: uppercase;
+  text-align: center;
+}
+.repo-container .no-records {
+  color: #FFFFD8;
+}
+.repo-container .repo-flexbox .repo-wrapper p {
+  text-align: left;
+  font-size: 1.8rem;
+}
+.repo-container .repo-flexbox .repo-wrapper .repo-url p {
+  color: #FFFFD8;
+  transition: all 200ms ease-in-out;
+}
+.repo-container .repo-flexbox .repo-wrapper .repo-url p:hover {
+  transform: scale(1.5);
+}
+.repo-container .repo-flexbox .repo-wrapper .commit-links {
+  text-align: left;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  transition: all 200ms ease-in-out;
+}
+
+/* Typography of the commit page */
+.commit-container {
+  font-size: 2rem;
+}
+.commit-container p {
+  font-weight: 300;
+}
+.commit-container p span {
+  font-weight: 700;
+  margin-left: 3rem;
+  color: #FFFF27;
 }
 
 .error {
@@ -135,7 +213,8 @@ body {
 /* Styling of home page */
 .home-container {
   background-color: rgba(0, 0, 0, 0.2);
-  padding: 4rem;
+  margin-top: 3rem;
+  padding: 2rem;
   border-radius: 1rem;
   backdrop-filter: blur(1rem);
   box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5);
@@ -158,6 +237,13 @@ body {
 }
 .vcs-display .avatar {
   box-shadow: 0.5rem 0.5rem 3rem rgb(0, 0, 0), -0.5rem -0.5rem 3rem #005DB4;
+  transition: all 300ms ease-in-out;
+}
+.vcs-display .avatar:hover {
+  transform: scale(1.2);
+}
+.vcs-display .links-wrapper {
+  margin-top: 2rem;
 }
 
 /* Styling of the bootstrap pagination bar from the default theme to one that suites the current component */
@@ -208,6 +294,13 @@ a.page-link {
   padding: 2rem;
   height: 100vh;
   position: relative;
+}
+
+.commit-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .error {
@@ -277,6 +370,22 @@ a.page-link {
   align-self: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.repo-container {
+  display: flex;
+  flex-direction: column;
+}
+.repo-container .heading-primary {
+  display: inline-block;
+}
+.repo-container .repo-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.repo-container .repo-flexbox .repo-wrapper {
+  margin: 2rem;
 }
 
 /* Layout of the search bar in the header */

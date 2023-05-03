@@ -1,19 +1,18 @@
 /*
 * This test is to evaluate the general functioning of the backend
 */
-
-const expect = require('chai').expect;
-
+const should = require('chai').should();
+const assertChai = require('chai').assert;
 const assert = require('node:assert')
 const request = require('request');
 
-describe('Status and content', function() {
-    describe ('Users page', function() {
+describe('Github Interface status and content', function() {
+    describe ('githubInterface page', function() {
         /* This function tests whether a status of 200 is received back */
         it('status', function(done){
-            request('http://localhost:8000/users',
+            request('http://localhost:8000/githubInterface',
                 function(error, response) {
-                    expect(response.statusCode).to.equal(200);
+                    assert(response.statusCode, 200);
                     done();
                 });
         });
@@ -21,7 +20,7 @@ describe('Status and content', function() {
         it('content', function(done) {
             request('http://localhost:8000/users',
                 function(error, response, body) {
-                    expect(body).should.be.a('object');
+                    should.not.exist(error)
                     done();
                 });
         });

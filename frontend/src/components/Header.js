@@ -36,9 +36,23 @@ export const Header = () => {
         <div className={'header-container'}>
             {/* Header banner containing the title and two logos for the two VCS that are being used */}
             <div className={'header-banner'}>
-                <img className={'header-logo'} src={GitLabLogo} alt={"GitHub"}/>
+                <Link
+                    to={'/displayGitLabUsers'}
+                    state={{
+                        user: user,
+                    }}
+                >
+                    <img className={'header-logo'} src={GitLabLogo} alt={"GitHub"}/>
+                </Link>
                 <h1>VCS Interface Application</h1>
-                <img className={'header-logo'} src={GitHubLogo} alt={"GitHub"}/>
+                <Link
+                    to={'/displayGitHubUsers'}
+                    state={{
+                        user: user,
+                    }}
+                >
+                    <img className={'header-logo'} src={GitHubLogo} alt={"GitHub"}/>
+                </Link>
             </div>
             {/* The search bar below the banner. This contains the form submit button, input field as well as a
              home button because the header component will be displayed on all renders*/}

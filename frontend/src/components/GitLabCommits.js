@@ -8,15 +8,12 @@ export const GitHubCommits = () => {
     const [commitsList, setCommitsList] = useState([]);
 
     const location = useLocation();
-    const user = location.state.user;
-    const repoName = location.state.repoName;
     const repoId = location.state.repoId;
 
     useEffect(() => {
 
         axios.post('http://localhost:8000/githubCommits', {
-            user: user,
-            repoName: repoName
+            repoId: repoId
         })
             .then(response => {
                 setCommitsList(response.data)
@@ -25,14 +22,14 @@ export const GitHubCommits = () => {
                 console.log(error);
             })
 
-    }, [user, repoName]);
+    }, [repoId]);
 
     return (
         <div>
             {commitsList.map((commit, index) => {
                 return (
                     <div>
-                        <p>Date: {commit.commit.author.date} <span>Comment: {commit.commit.message}</span></p>
+                        <p>Date: {commit.comitted_date} <span>Comment: {commit.title}</span></p>
                     </div>
                 )
             })}

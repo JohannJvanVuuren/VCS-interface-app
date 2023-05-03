@@ -17,9 +17,17 @@
   .avatar {
     box-shadow: 0.5rem 0.5rem 3rem $solid-black,
     -0.5rem -0.5rem 3rem $mid-blue;
-  }
-}
+    transition: all 300ms ease-in-out;
 
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+  .links-wrapper {
+    margin-top: 2rem;
+  }
+  }
 
 /* Styling of the bootstrap pagination bar from the default theme to one that suites the current component */
 span.page-link,
