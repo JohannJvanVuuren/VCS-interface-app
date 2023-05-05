@@ -1,5 +1,5 @@
 /*
-* This route is here to test the general functioning of the backend
+* This route is here to test the general functioning of the backend. It is therefore a dummy route.
 */
 const express = require('express');
 const router = express.Router();

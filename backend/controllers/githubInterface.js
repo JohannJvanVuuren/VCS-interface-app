@@ -35,7 +35,7 @@ const processFrontendRequestGitHub = (req, res) => {
             res.send(users);
         })
         .catch((error) => {
-            console.log(error.message);
+            console.log('Error', error.message);
         })
 }
 

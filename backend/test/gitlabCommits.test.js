@@ -1,5 +1,5 @@
 /*
-* This test is to evaluate the general functioning of the backend
+* This test is to evaluate the functioning of the gitlabCommits route
 */
 const should = require('chai').should();
 const assert = require('node:assert')

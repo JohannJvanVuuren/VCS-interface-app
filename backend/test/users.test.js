@@ -1,5 +1,5 @@
 /*
-* This test is to evaluate the general functioning of the backend
+* This test is to evaluate the general functioning of the backend. It evaluates the dummy 'users' route.
 */
 
 const expect = require('chai').expect;
