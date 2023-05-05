@@ -1,8 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from "enzyme";
 import { expect } from 'chai';
-import { shallow, mount, render } from 'enzyme';
-import sinon from 'sinon';
+import { shallow } from 'enzyme';
 import '@testing-library/jest-dom';
 
 import { Header } from '../components/Header';
