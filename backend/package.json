@@ -26,8 +26,8 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "chai": "^4.3.7",
-    "mocha": "^10.2.0",
+    "chai": "4.3.7",
+    "mocha": "10.2.0",
     "webpack": "5.79.0"
   }
 }

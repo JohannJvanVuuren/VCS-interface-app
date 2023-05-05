@@ -1,4 +1,6 @@
+
 import { Routes, Route } from 'react-router-dom';
+
 
 /* Import of the components needed in this one */
 import {Header} from "./components/Header";

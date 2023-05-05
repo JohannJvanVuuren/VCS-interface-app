@@ -7,8 +7,8 @@ const expect = require('chai').expect;
 const assert = require('node:assert')
 const request = require('request');
 
-describe('Status and content', function() {
-    describe ('Users page', function() {
+describe('Users page status and content', function() {
+    describe ('users route', function() {
         /* This function tests whether a status of 200 is received back */
         it('status', function(done){
             request('http://localhost:8000/users',
