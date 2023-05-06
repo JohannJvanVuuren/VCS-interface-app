@@ -9,13 +9,13 @@
     .home-btn-container {
 
       .btn-home {
-        border-radius: 1rem;
-        width: 10rem;
-        border: none;
-        background-color: $mid-blue;
         color: $off-white-burgundy;
+        background-color: $mid-blue;
+        border: none;
+        border-radius: 1rem;
         box-shadow: 1rem 1rem 3rem $solid-black,
       -1px -1px 0.5rem $light-blue;
+        width: 10rem;
       }
     }
 
@@ -23,25 +23,25 @@
 
       /* The input field */
       .search-input {
-        font-size: 2rem;
-        border-radius: 1rem;
+        background-color: $off-white-yellow;
         border: none;
+        border-radius: 1rem;
         box-shadow: 0.5rem 0.5rem 3rem $mid-shadow,
         -0.5rem -0.5rem 3rem $dark-blue;
-        background-color: $off-white-yellow;
-        text-align: center;
+        font-size: 2rem;
         outline: none;
+        text-align: center;
       }
 
       /* The form submit button */
       .btn-submit {
-        width: 10rem;
-        border-radius: 1rem;
         background-color: $mid-blue;
         border: none;
-        color: $off-white-burgundy;
+        border-radius: 1rem;
         box-shadow: 1rem 1rem 3rem $solid-black,
         -1px -1px 0.5rem $light-blue;
+        color: $off-white-burgundy;
+        width: 10rem;
       }
     }
   }

@@ -1,9 +1,8 @@
 /* Layout of the home page that users will encounter when visiting the main url */
 .home-container {
-
+  left: 50%;
   position: absolute;
   top: 60%;
-  left: 50%;
   transform: translate(-50%, -50%);
 
   .home-paragraph1 {

@@ -1,19 +1,22 @@
 @import '../abstract/variables';
 
+/* Styling of the pagination system that display the different users with links to their repos */
 .vcs-display {
 
+  /* Styling of the buttons (next, current, previous) */
   .button {
     background: $button-dark;
     border: 1px solid $button-dark;
-    padding: 0.7rem 1.2rem;
     border-radius: 3px;
     cursor: pointer;
+    padding: 0.7rem 1.2rem;
 
     &:hover {
       background: $button-dark;
     }
   }
 
+  /* Each user's avatar */
   .avatar {
     box-shadow: 0.5rem 0.5rem 3rem $solid-black,
     -0.5rem -0.5rem 3rem $mid-blue;

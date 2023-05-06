@@ -31,6 +31,10 @@ export const DisplayGitLabUsers = () => {
     useEffect(() => {
         setIsLoading(true);
 
+        /* Axios post request to the gitlabInterface route on the backend. The username and active
+        * page is included in the body of the request. The data obtained from the backend is then used
+        * to set users array and isLoading state variables. isLoading is used to determine whether
+        * a spinner must be shown during loading */
         axios.post(`http://localhost:8000/gitlabInterface`, {
             searchQuery: user.toLowerCase(),
             page: page
@@ -38,20 +42,21 @@ export const DisplayGitLabUsers = () => {
             .then(response => {
                 setUsers(response.data);
                 setIsLoading(false);
-                console.log(response.data);
                 return response.data;
             })
             .catch(err => {
                 console.log(err);
                 setIsLoading(false);
             });
-    }, [page, user]);
+    }, [page, user]); // useEffect hook dependencies
 
 
     return (
         <div className={'vcs-container'}>
             <h1>GitLab User Listing</h1>
             <div className={'vcs-display'}>
+                {/* Using the array map to loop through the users array to display individual properties of
+                 unique users */}
                 {users.map((user, index) => {
                     const webUrl = user.web_url;
                     return (
@@ -64,6 +69,8 @@ export const DisplayGitLabUsers = () => {
                             <a className={'username-link'} href={user.web_url} target={'_blank'} rel="noreferrer">
                                 <p className={'username'}>{user.username}</p>
                             </a>
+                            {/* Passing the username and webUrl to the githubRepos page using the state
+                                attribute of the React Router Link component */}
                             <Link
                                 className={'repo-link'}
                                 to={'/gitlabRepos'}
@@ -79,11 +86,14 @@ export const DisplayGitLabUsers = () => {
                 })}
             </div>
             <div className={'pagination'}>
+                {/* This ternary operator determines whether the spinner will be displayed (while the data is
+                loading) or whether the paginated data is displayed (once the data has finished loading) */}
                 {isLoading ? (
                     <div className={'mx-auto'}>
                         <Spinner animation="border" variant='light'/>
                     </div>
                 ) : (
+                    /* This is a React-Bootstrap pagination system that has been adapted to this component */
                     <div className={'mx-auto'}>
                         <Pagination size={'lg'} className={'pagination-item'}>
                             <Pagination.First

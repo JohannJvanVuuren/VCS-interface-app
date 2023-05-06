@@ -3,8 +3,8 @@
 
 /* General styling of header */
 .header-container {
-  box-shadow: 0.5rem 0.5rem 3rem $solid-black,
-  -0.5rem -0.5rem 3rem $mid-blue;
   background-color: $dark-shadow;
   backdrop-filter: blur(10px);
+  box-shadow: 0.5rem 0.5rem 3rem $solid-black,
+  -0.5rem -0.5rem 3rem $mid-blue;
 }

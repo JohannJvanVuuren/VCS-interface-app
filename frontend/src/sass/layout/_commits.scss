@@ -1,8 +1,7 @@
+/* Layout of the commits container that houses the individual commits */
 .commit-container {
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
-
-
 }

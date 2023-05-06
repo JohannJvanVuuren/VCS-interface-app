@@ -2,20 +2,18 @@
 
 /* General positioning of the header div */
 .header-container {
-
   margin: 0 auto;
 
   /* Layout of the search form element of the component */
 
   /* General layout */
   .search {
-
-    width: 100%;
-    height: auto;
-    display: flex;
-    margin: 2rem auto;
-    justify-content: space-between;
     align-items: flex-end;
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    margin: 2rem auto;
+    width: 100%;
 
     /* Layout and dimensions of home button */
     .home-btn-container {
@@ -27,16 +25,16 @@
 
     /* Layout of the form as a whole */
     .input-form {
+      align-items: center;
       display: flex;
       margin-left: 1rem;
-      align-items: center;
       position: relative;
 
       /* Dimensions of the input field */
       .search-input {
-        width: 40rem;
-        padding: 0.6rem;
         margin-right: 1rem;
+        padding: 0.6rem;
+        width: 40rem;
       }
 
       /* Dimensions and positioning of the search icon */
@@ -47,8 +45,8 @@
 
       /* Dimensions of the submit button */
       .btn-submit {
-        padding: 1rem;
         margin: 1rem;
+        padding: 1rem;
       }
     }
   }
